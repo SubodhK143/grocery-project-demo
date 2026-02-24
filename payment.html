@@ -1,1 +1,56 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment - Fresh Grocery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Payment</h1>
+</header>
+
+<div style="max-width:400px; margin:40px auto; background:white; padding:20px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+
+    <h2>Select Payment Method</h2>
+
+    <form onsubmit="placeOrder(event)">
+        <label>
+            <input type="radio" name="payment" value="UPI" required> UPI
+        </label><br><br>
+
+        <label>
+            <input type="radio" name="payment" value="Card"> Debit/Credit Card
+        </label><br><br>
+
+        <label>
+            <input type="radio" name="payment" value="COD"> Cash on Delivery
+        </label><br><br>
+
+        <button type="submit" class="checkout-btn">Pay Now</button>
+    </form>
+
+</div>
+
+<footer class="footer">
+    <p>© 2026 Fresh Grocery</p>
+    <p>Designed & Developed by Aman Raj</p>
+</footer>
+
+<script>
+function placeOrder(e){
+    e.preventDefault();
+
+    alert("Payment Successful! Order Placed.");
+
+    // Clear cart
+    localStorage.removeItem("cart");
+
+    // Redirect to home
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
