@@ -66,9 +66,14 @@ function displayProducts(list){
 }
 
 function addToCart(id){
-    cart.push(products.find(p=>p.id===id));
-    localStorage.setItem("cart",JSON.stringify(cart));
+    const product = products.find(p => p.id === id);
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
     if(cartCount) cartCount.textContent = cart.length;
+
+    // Automatically show recommendation
+    showRecommendations(product.category, id);
 }
 
 function recommend(id){
@@ -97,4 +102,5 @@ document.getElementById("search").addEventListener("input",function(){
 });
 
 displayProducts(products);
+
 
