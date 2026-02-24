@@ -61,7 +61,6 @@ function displayProducts(list){
             <h3>${p.name}</h3>
             <p>₹${p.price}</p>
             <button onclick="addToCart(${p.id})">Add to Cart</button>
-            <button onclick="recommend(${p.id})">Similar</button>
         </div>`;
     });
 }
@@ -98,3 +97,4 @@ document.getElementById("search").addEventListener("input",function(){
 });
 
 displayProducts(products);
+
