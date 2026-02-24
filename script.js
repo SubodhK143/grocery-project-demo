@@ -1,3 +1,5 @@
+
+// ================== PRODUCT DATA ==================
 const products = [
     // Fruits
     {id:1,name:"Apple",price:120,category:"fruits",image:"https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=500&q=60"},
@@ -44,6 +46,7 @@ const products = [
     {id:30,name:"Toothpaste",price:90,category:"personal",image:"https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=60"}
 ];
 
+// ================== SETUP ==================
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const container = document.getElementById("product-container");
@@ -52,12 +55,13 @@ const cartCount = document.getElementById("cart-count");
 
 if(cartCount) cartCount.textContent = cart.length;
 
+// ================== DISPLAY PRODUCTS ==================
 function displayProducts(list){
     container.innerHTML = "";
     list.forEach(p=>{
         container.innerHTML += `
         <div class="card">
-            <img src="${p.image}">
+            <img src="${p.image}" alt="${p.name}">
             <h3>${p.name}</h3>
             <p>₹${p.price}</p>
             <button onclick="addToCart(${p.id})">Add to Cart</button>
@@ -65,6 +69,7 @@ function displayProducts(list){
     });
 }
 
+// ================== ADD TO CART + AUTO RECOMMEND ==================
 function addToCart(id){
     const product = products.find(p => p.id === id);
     cart.push(product);
@@ -72,10 +77,10 @@ function addToCart(id){
 
     if(cartCount) cartCount.textContent = cart.length;
 
-    // Automatic Recommendation
     showRecommendations(product.category, id);
 }
 
+// ================== RECOMMENDATION ==================
 function showRecommendations(category, excludeId){
     const similar = products.filter(p =>
         p.category === category && p.id !== excludeId
@@ -83,26 +88,30 @@ function showRecommendations(category, excludeId){
 
     recommendBox.innerHTML = "";
 
-    similar.slice(0,4).forEach(p => {
+    similar.slice(0,4).forEach(p=>{
         recommendBox.innerHTML += `
         <div class="card">
             <img src="${p.image}">
             <h4>${p.name}</h4>
             <p>₹${p.price}</p>
+            <button onclick="addToCart(${p.id})">Add to Cart</button>
         </div>`;
     });
 
-    recommendBox.scrollIntoView({ behavior: "smooth" });
+    recommendBox.scrollIntoView({behavior:"smooth"});
 }
 
+// ================== FILTER ==================
 function filterCategory(cat){
-    if(cat==="all") displayProducts(products);
-    else displayProducts(products.filter(p=>p.category===cat));
+    if(cat === "all") displayProducts(products);
+    else displayProducts(products.filter(p => p.category === cat));
 }
 
+// ================== SEARCH ==================
 document.getElementById("search").addEventListener("input",function(){
     const val = this.value.toLowerCase();
-    displayProducts(products.filter(p=>p.name.toLowerCase().includes(val)));
+    displayProducts(products.filter(p => p.name.toLowerCase().includes(val)));
 });
 
+// ================== INIT ==================
 displayProducts(products);
