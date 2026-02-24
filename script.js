@@ -57,7 +57,7 @@ function displayProducts(list){
     list.forEach(p=>{
         container.innerHTML += `
         <div class="card">
-            <img src="${p.image}" alt="${p.name}">
+            <img src="${p.image}">
             <h3>${p.name}</h3>
             <p>₹${p.price}</p>
             <button onclick="addToCart(${p.id})">Add to Cart</button>
@@ -72,16 +72,18 @@ function addToCart(id){
 
     if(cartCount) cartCount.textContent = cart.length;
 
-    // Automatically show recommendation
+    // Automatic Recommendation
     showRecommendations(product.category, id);
 }
 
-function recommend(id){
-    const selected = products.find(p=>p.id===id);
-    const similar = products.filter(p=>p.category===selected.category && p.id!==id);
+function showRecommendations(category, excludeId){
+    const similar = products.filter(p =>
+        p.category === category && p.id !== excludeId
+    );
 
-    recommendBox.innerHTML="";
-    similar.forEach(p=>{
+    recommendBox.innerHTML = "";
+
+    similar.slice(0,4).forEach(p => {
         recommendBox.innerHTML += `
         <div class="card">
             <img src="${p.image}">
@@ -89,6 +91,8 @@ function recommend(id){
             <p>₹${p.price}</p>
         </div>`;
     });
+
+    recommendBox.scrollIntoView({ behavior: "smooth" });
 }
 
 function filterCategory(cat){
@@ -102,5 +106,3 @@ document.getElementById("search").addEventListener("input",function(){
 });
 
 displayProducts(products);
-
-
