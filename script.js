@@ -26,13 +26,13 @@ const products = [
     {id:16,name:"Wheat Flour",price:60,category:"staples",image:"https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=500&q=60"},
     {id:17,name:"Cooking Oil",price:150,category:"staples",image:"https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=500&q=60"},
     {id:18,name:"Sugar",price:45,category:"staples",image:"https://images.unsplash.com/photo-1581447109200-bf2769116351?auto=format&fit=crop&w=500&q=60"},
-    {id:19,name:"Salt",price:20,category:"staples",image:"https://images.unsplash.com/photo-1518110925495-5f7c6e3cbb3b?auto=format&fit=crop&w=500&q=60"},
+    {id:19,name:"Salt",price:20,category:"staples",image:"https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=500&q=60"},
 
     // Snacks
     {id:20,name:"Biscuits",price:30,category:"snacks",image:"https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=500&q=60"},
     {id:21,name:"Chips",price:20,category:"snacks",image:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=500&q=60"},
     {id:22,name:"Chocolate",price:50,category:"snacks",image:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=60"},
-    {id:23,name:"Namkeen",price:40,category:"snacks",image:"https://images.unsplash.com/photo-1604908177522-432c7d4d1c7d?auto=format&fit=crop&w=500&q=60"},
+    {id:23,name:"Namkeen",price:40,category:"snacks",image:"https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=500&q=60"},
 
     // Beverages
     {id:24,name:"Tea",price:120,category:"beverages",image:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=500&q=60"},
@@ -41,7 +41,7 @@ const products = [
     {id:27,name:"Soft Drink",price:40,category:"beverages",image:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=500&q=60"},
 
     // Personal Care
-    {id:28,name:"Soap",price:35,category:"personal",image:"https://images.unsplash.com/photo-1607006344380-b6775a0824c7?auto=format&fit=crop&w=500&q=60"},
+   {id:28,name:"Soap",price:35,category:"personal",image:"https://images.unsplash.com/photo-1607006344380-b6775a0824c7?auto=format&fit=crop&w=500&q=60"},
     {id:29,name:"Shampoo",price:120,category:"personal",image:"https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=500&q=60"},
     {id:30,name:"Toothpaste",price:90,category:"personal",image:"https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=500&q=60"}
 ];
@@ -115,3 +115,4 @@ document.getElementById("search").addEventListener("input",function(){
 
 // ================== INIT ==================
 displayProducts(products);
+
