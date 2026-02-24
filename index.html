@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fresh Grocery Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Fresh Grocery</h1>
+    <input type="text" id="search" placeholder="Search products">
+    <a href="cart.html">🛒 Cart (<span id="cart-count">0</span>)</a>
+</header>
+
+<section class="banner">
+    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1200">
+</section>
+
+<div class="categories">
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('fruits')">Fruits</button>
+    <button onclick="filterCategory('vegetables')">Vegetables</button>
+    <button onclick="filterCategory('dairy')">Dairy</button>
+    <button onclick="filterCategory('staples')">Staples</button>
+    <button onclick="filterCategory('snacks')">Snacks</button>
+    <button onclick="filterCategory('beverages')">Beverages</button>
+    <button onclick="filterCategory('personal')">Personal Care</button>
+</div>
+
+<div id="product-container" class="grid"></div>
+
+<h2 class="section-title">Recommended Products</h2>
+<div id="recommend-container" class="grid"></div>
+
+<footer class="footer">
+    <p>© 2026 Fresh Grocery</p>
+    <p>Designed & Developed by Aman Raj</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
