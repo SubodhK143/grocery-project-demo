@@ -1,3 +1,4 @@
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const container = document.getElementById("cart-items");
 const totalBox = document.getElementById("total");
@@ -32,6 +33,15 @@ function removeItem(index){
     cart.splice(index,1);
     localStorage.setItem("cart",JSON.stringify(cart));
     displayCart();
+}
+
+// Go to payment page
+function checkout(){
+    if(cart.length === 0){
+        alert("Your cart is empty!");
+        return;
+    }
+    window.location.href = "payment.html";
 }
 
 displayCart();
